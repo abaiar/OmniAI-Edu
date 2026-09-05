@@ -63,6 +63,21 @@ export default defineConfig({
       '/api/agent': {
         target: 'http://127.0.0.1:5011',
         changeOrigin: true
+      },
+      // 多方式认证服务 (5021)
+      '/api/auth': {
+        target: 'http://127.0.0.1:5021',
+        changeOrigin: true
+      },
+      // 讨论区服务 (5020)
+      '/api/discussions': {
+        target: 'http://127.0.0.1:5020',
+        changeOrigin: true
+      },
+      // 社交服务：个人主页/关注/私信 (5022)
+      '/api/social': {
+        target: 'http://127.0.0.1:5022',
+        changeOrigin: true
       }
     }
   },

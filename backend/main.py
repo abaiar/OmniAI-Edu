@@ -62,7 +62,7 @@ class ServiceLauncher:
         """获取基于当前文件目录的服务路径"""
         return str(Path(__file__).parent.joinpath(*path_parts).resolve())
 
-    # 服务配置列表 - 只保留登录服务、OpenMAIC智能课堂服务、API统一管理服务
+    # 服务配置列表 - 包含新增的讨论区服务和认证服务
     SERVICES_CONFIG: List[ServiceConfig] = [
         ServiceConfig(
             name="login",
@@ -100,6 +100,30 @@ class ServiceLauncher:
             file_path=_get_service_path.__func__("PracticeService", "app.py"),
             port=5011,
             startup_command=[sys.executable, _get_service_path.__func__("PracticeService", "app.py")]
+        ),
+        # 新增讨论区服务
+        ServiceConfig(
+            name="discussion",
+            display_name="讨论区服务",
+            file_path=_get_service_path.__func__("Discussion", "app.py"),
+            port=5020,
+            startup_command=[sys.executable, _get_service_path.__func__("Discussion", "app.py"), "--port", "5020"]
+        ),
+        # 新增多方式认证服务
+        ServiceConfig(
+            name="auth_multi",
+            display_name="多方式认证服务",
+            file_path=_get_service_path.__func__("AuthMulti", "app.py"),
+            port=5021,
+            startup_command=[sys.executable, _get_service_path.__func__("AuthMulti", "app.py"), "--port", "5021"]
+        ),
+        # 新增社交服务（个人主页/关注/私信）
+        ServiceConfig(
+            name="social",
+            display_name="社交服务",
+            file_path=_get_service_path.__func__("Social", "app.py"),
+            port=5022,
+            startup_command=[sys.executable, _get_service_path.__func__("Social", "app.py"), "--port", "5022"]
         ),
     ]
 
@@ -576,6 +600,10 @@ def print_help():
     │ 登录服务           │ 5000     │ 用户登录/注册(MongoDB)      │
     │ OpenMAIC智能课堂   │ 5006     │ AI通识教育一站式实践平台    │
     │ API统一管理服务    │ 5010     │ API密钥统一管理             │
+    │ 手写数字识别服务   │ 5005     │ GPU加速数字识别             │
+    │ 练习反馈服务       │ 5011     │ 练习结果反馈与评估          │
+    │ 讨论区服务         │ 5020     │ 用户交流讨论区              │
+    │ 多方式认证服务     │ 5021     │ 手机号/微信/QQ/邮箱注册登录 │
     └────────────────────┴──────────┴─────────────────────────────┘
 
 控制:

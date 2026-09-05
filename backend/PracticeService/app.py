@@ -34,7 +34,7 @@ try:
     MONGODB_AVAILABLE = True
     print("✅ PracticeService MongoDB 连接成功")
 except Exception as e:
-    print(f"⚠️ PracticeService MongoDB 连接失败: {e}")
+    print(f"PracticeService MongoDB 连接失败: {e}")
     print("📝 使用内存模式运行")
 
 memory_practice_records = []

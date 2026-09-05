@@ -74,6 +74,12 @@
     </div>
     <div class="zyyo-right">
       <header>
+        <div class="index-logo" style="background-image: url('../../static/img/logo.png');">
+          <img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="../../static/img/logokuang.png">
+        </div>
+        <div class="welcome">
+          <span class="gradientText">AI通识一站式实践平台</span>
+        </div>
         <div class="header-actions">
           <router-link to="/api-management" class="api-mgmt-btn" title="API管理">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -81,18 +87,33 @@
             </svg>
             API管理
           </router-link>
+          <router-link to="/discussion" class="api-mgmt-btn" title="讨论区">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            讨论区
+          </router-link>
+          <router-link :to="`/profile/${encodeURIComponent(myUsername)}`" class="api-mgmt-btn" title="个人主页">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            我的主页
+          </router-link>
+          <router-link to="/messages" class="api-mgmt-btn" title="私信">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            私信
+            <span v-if="unreadCount > 0" class="unread-badge">{{ unreadCount > 99 ? '99+' : unreadCount }}</span>
+          </router-link>
           <button class="logout-btn" @click="handleLogout" title="退出登录">
             <svg viewBox="0 0 1024 1024" width="16" height="16">
               <circle cx="512" cy="512" r="450" fill="currentColor"/>
             </svg>
             退出
           </button>
-        </div>
-        <div class="index-logo" style="background-image: url('../../static/img/logo.png');">
-          <img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="../../static/img/logokuang.png">
-        </div>
-        <div class="welcome">
-          <span class="gradientText">AI通识一站式实践平台</span>
         </div>
         <div class="description">
           📝 <span class="purpleText">OmniAI Edu</span> 是一款人工智能通识教育一站式实践平台，提供 
@@ -243,7 +264,28 @@ const API_BASE = ''
 
 export default {
   name: 'Index',
+  data() {
+    return {
+      unreadCount: 0,
+      unreadTimer: null
+    }
+  },
+  computed: {
+    myUsername() {
+      const userStore = useUserStore()
+      return userStore.user?.username || localStorage.getItem('username') || ''
+    }
+  },
   methods: {
+    async fetchUnread() {
+      const username = this.myUsername
+      if (!username) return
+      try {
+        const res = await fetch(`/api/social/messages/unread/${encodeURIComponent(username)}`)
+        const data = await res.json()
+        if (data.code === 200) this.unreadCount = data.data.unread
+      } catch (e) { /* 后端未启动时忽略 */ }
+    },
     pop(imagePath) {
       const tc = document.querySelector('.tc')
       const tcImg = document.querySelector('.tc-img')
@@ -320,6 +362,11 @@ export default {
       html.classList.remove('Dark')
       if (tanChiSheImg) tanChiSheImg.src = '../../static/svg/snake-Light.svg'
     }
+    this.fetchUnread()
+    this.unreadTimer = setInterval(() => this.fetchUnread(), 10000)
+  },
+  beforeUnmount() {
+    clearInterval(this.unreadTimer)
   }
 }
 </script>
@@ -330,24 +377,23 @@ header {
 }
 
 .header-actions {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
-  z-index: 10;
+  margin: 8px 0 18px;
+  padding-left: 0;
 }
 
 .api-mgmt-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 6px 14px;
   background: linear-gradient(135deg, #6c5ce7, #a29bfe);
   color: white;
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 18px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -355,6 +401,25 @@ header {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+}
+
+.unread-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: #e53935;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
 }
 
 .api-mgmt-btn::before {
@@ -397,13 +462,13 @@ header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 6px 14px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #dc3545;
   border: 1px solid #dc3545;
-  border-radius: 20px;
+  border-radius: 18px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   transition: all 0.3s ease;
 }

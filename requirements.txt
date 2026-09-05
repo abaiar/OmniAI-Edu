@@ -1,0 +1,20 @@
+# OmniAI-Edu Backend Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Web framework
+flask>=3.0.0
+flask-cors>=4.0.0
+flask-pymongo>=2.3.0
+pymongo>=4.5.0
+
+# Auth & env
+python-dotenv>=1.0.0
+PyJWT>=2.8.0
+
+# Computer Vision / ML (Digit Recognition)
+opencv-python>=4.8.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# HTTP requests (for WeChat/QQ/Aliyun API calls)
+requests>=2.31.0

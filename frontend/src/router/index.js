@@ -12,6 +12,11 @@ import PracticePage from '../components/PracticePage.vue'
 import QuizPage from '../components/QuizPage.vue'
 import QuizReport from '../components/QuizReport.vue'
 import FeedbackPage from '../components/FeedbackPage.vue'
+import Discussion from '../components/Discussion.vue'
+import RegisterLogin from '../components/RegisterLogin.vue'
+import ProfilePage from '../components/ProfilePage.vue'
+import Messages from '../components/Messages.vue'
+
 
 const routes = [
   {
@@ -77,6 +82,35 @@ const routes = [
     path: '/feedback',
     name: 'FeedbackPage',
     component: FeedbackPage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/discussion',
+    name: 'Discussion',
+    component: Discussion,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/auth',
+    name: 'Auth',
+    component: RegisterLogin
+  },
+  {
+    path: '/profile/:username',
+    name: 'Profile',
+    component: ProfilePage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: Messages,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/messages/:username',
+    name: 'Chat',
+    component: Messages,
     meta: { requiresAuth: true }
   },
   {
