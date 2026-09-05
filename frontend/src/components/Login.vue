@@ -3,7 +3,7 @@
     <div class="login-box">
       <div class="login-header">
         <div class="logo-container">
-          <div class="logo-bg" style="background-image: url('../../static/img/touxiang.png');"></div>
+          <div class="logo-bg" style="background-image: url('../../static/img/touxiang.jpg');"></div>
           <img src="../../static/img/logokuang.png" alt="Logo" class="logo-frame">
         </div>
         <h2>教师助手系统</h2>
@@ -41,6 +41,26 @@
             v-model="form.confirmPassword" 
             placeholder="请再次输入密码"
             required
+          >
+        </div>
+
+        <div class="form-group" v-if="!isLoginMode">
+          <label for="class_name">班级</label>
+          <input 
+            type="text" 
+            id="class_name" 
+            v-model="form.class_name" 
+            placeholder="请输入班级"
+          >
+        </div> 
+
+        <div class="form-group" v-if="!isLoginMode">
+          <label for="cstudent_id">学号</label>
+          <input 
+            type="text" 
+            id="student_id" 
+            v-model="form.student_id" 
+            placeholder="请输入学号"
           >
         </div>
         
@@ -93,7 +113,9 @@ const successMessage = ref('')
 const form = reactive({
   username: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  class_name: '',
+  student_id: ''
 })
 
 const toggleMode = () => {
@@ -118,6 +140,10 @@ const handleSubmit = async () => {
   const formData = new FormData()
   formData.append('username', form.username)
   formData.append('password', form.password)
+  if (!isLoginMode.value){
+    formData.append('class_name', form.class_name)
+    formData.append('student_id', form.student_id)
+  }
 
   const url = isLoginMode.value ? `${LOGIN_BASE_URL}/login` : `${LOGIN_BASE_URL}/register`
 
