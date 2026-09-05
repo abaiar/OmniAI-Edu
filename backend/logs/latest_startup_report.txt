@@ -1,44 +1,32 @@
 ============================================================
 Teacher Assistant AI 启动报告
 ============================================================
-生成时间: 2026-06-03 20:47:48
-Python版本: 3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:20:58) [GCC 14.3.0]
+生成时间: 2026-09-05 09:57:09
+Python版本: 3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]
 ------------------------------------------------------------
 
 服务状态:
 服务名称                 端口       PID        状态         日志文件
 --------------------------------------------------------------------------------
-登录服务               5000     547593     running    /home/ubuntu/OmniAI Edu/backend/logs/services/login_20260603_204746.log
-OpenMAIC智能课堂服务     5006     547596     failed     N/A
-API统一管理服务          5010     547595     running    /home/ubuntu/OmniAI Edu/backend/logs/services/api_management_20260603_204746.log
-手写数字识别服务(GPU)      5005     547599     running    /home/ubuntu/OmniAI Edu/backend/logs/services/digit_recognition_20260603_204746.log
-练习反馈服务             5011     547597     running    /home/ubuntu/OmniAI Edu/backend/logs/services/practice_service_20260603_204746.log
+登录服务               5000     16132      running    C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\login_20260905_095707.log
+OpenMAIC智能课堂服务     5006     12300      failed     N/A
+API统一管理服务          5010     1084       running    C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\api_management_20260905_095707.log
+手写数字识别服务(GPU)      5005     7772       failed     N/A
+练习反馈服务             5011     5748       running    C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\practice_service_20260905_095707.log
 
 ------------------------------------------------------------
 详细日志:
-[20:47:46] [登录服务] STARTING: Port: 5000
-[20:47:46] [API统一管理服务] STARTING: Port: 5010
-[20:47:46] [OpenMAIC智能课堂服务] STARTING: Port: 5006
-[20:47:46] [手写数字识别服务(GPU)] STARTING: Port: 5005
-[20:47:46] [练习反馈服务] STARTING: Port: 5011
-[20:47:48] [登录服务] RUNNING: PID: 547593, Port: 5000, Log: /home/ubuntu/OmniAI Edu/backend/logs/services/login_20260603_204746.log
-[20:47:48] [API统一管理服务] RUNNING: PID: 547595, Port: 5010, Log: /home/ubuntu/OmniAI Edu/backend/logs/services/api_management_20260603_204746.log
-[20:47:48] [OpenMAIC智能课堂服务] FAILED: 
-> openmaic@0.2.1 dev /home/ubuntu/OmniAI Edu/backend/OpenMAIC
-> next dev --port 5006
+[09:57:07] [登录服务] STARTING: Port: 5000
+[09:57:07] [API统一管理服务] STARTING: Port: 5010
+[09:57:07] [OpenMAIC智能课堂服务] STARTING: Port: 5006
+[09:57:07] [手写数字识别服务(GPU)] STARTING: Port: 5005
+[09:57:07] [练习反馈服务] STARTING: Port: 5011
+[09:57:09] [登录服务] RUNNING: PID: 16132, Port: 5000, Log: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\login_20260905_095707.log
+[09:57:09] [手写数字识别服务(GPU)] FAILED: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
 
-⨯ Failed to start server
-Error: listen EADDRINUSE: address already in use :::5006
-    at <unknown> (Error: listen EADDRINUSE: address already in use :::5006)
-    at new Promise (<anonymous>) {
-  code: 'EADDRINUSE',
-  errno: -98,
-  syscall: 'listen',
-  address: '::',
-  port: 5006
-}
-[?25h
- ELIFECYCLE  Command failed with exit code 1.
-
-[20:47:48] [练习反馈服务] RUNNING: PID: 547597, Port: 5011, Log: /home/ubuntu/OmniAI Edu/backend/logs/services/practice_service_20260603_204746.log
-[20:47:48] [手写数字识别服务(GPU)] RUNNING: PID: 547599, Port: 5005, Log: /home/ubuntu/OmniAI Edu/backend/logs/services/digit_recognition_20260603_204746.log
+[09:57:09] [API统一管理服务] RUNNING: PID: 1084, Port: 5010, Log: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\api_management_20260905_095707.log
+[09:57:09] [练习反馈服务] RUNNING: PID: 5748, Port: 5011, Log: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\practice_service_20260905_095707.log
+[09:57:09] [OpenMAIC智能课堂服务] FAILED: 进程立即退出，请检查日志文件

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\API_management\app.py", line 13, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'

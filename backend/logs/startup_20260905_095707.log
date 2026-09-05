@@ -1,0 +1,62 @@
+[2026-09-05 09:57:07] [INFO] ============================================================
+[2026-09-05 09:57:07] [INFO] Teacher Assistant AI 服务启动管理器
+[2026-09-05 09:57:07] [INFO] ============================================================
+[2026-09-05 09:57:07] [INFO] 启动模式: 并行
+[2026-09-05 09:57:07] [INFO] 日志级别: INFO
+[2026-09-05 09:57:07] [INFO] ------------------------------------------------------------
+[2026-09-05 09:57:07] [INFO] [登录服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\Login\login.py
+[2026-09-05 09:57:07] [INFO] [OpenMAIC智能课堂服务] 启动命令: 命令: pnpm dev --port 5006, 工作目录: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\OpenMAIC
+[2026-09-05 09:57:07] [INFO] [手写数字识别服务(GPU)] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py
+[2026-09-05 09:57:07] [INFO] [API统一管理服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\API_management\app.py --host 0.0.0.0 --port 5010
+[2026-09-05 09:57:07] [INFO] [练习反馈服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py
+[2026-09-05 09:57:09] [INFO] [登录服务] 启动成功 - PID: 16132, Port: 5000, 耗时: 2.02s
+[2026-09-05 09:57:09] [INFO] [登录服务] 日志文件: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\login_20260905_095707.log
+[2026-09-05 09:57:09] [ERROR] [手写数字识别服务(GPU)] 启动失败: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+[2026-09-05 09:57:09] [INFO] [API统一管理服务] 启动成功 - PID: 1084, Port: 5010, 耗时: 2.02s
+[2026-09-05 09:57:09] [INFO] [练习反馈服务] 启动成功 - PID: 5748, Port: 5011, 耗时: 2.02s
+[2026-09-05 09:57:09] [INFO] [API统一管理服务] 日志文件: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\api_management_20260905_095707.log
+[2026-09-05 09:57:09] [INFO] [练习反馈服务] 日志文件: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\practice_service_20260905_095707.log
+[2026-09-05 09:57:09] [ERROR] [OpenMAIC智能课堂服务] 启动失败: 进程立即退出，请检查日志文件
+[2026-09-05 09:57:09] [INFO] ------------------------------------------------------------
+[2026-09-05 09:57:09] [INFO] 启动完成 - 总计: 5 个服务
+[2026-09-05 09:57:09] [INFO]   成功: 3 个
+[2026-09-05 09:57:09] [INFO]   失败: 2 个
+[2026-09-05 09:57:09] [INFO]   总耗时: 2.03 秒
+[2026-09-05 09:57:09] [INFO] ------------------------------------------------------------
+[2026-09-05 09:57:09] [INFO] 服务状态详情:
+[2026-09-05 09:57:09] [INFO] 服务名称                 端口       PID        状态        
+[2026-09-05 09:57:09] [INFO] ------------------------------------------------------------
+[2026-09-05 09:57:09] [INFO] 登录服务               5000     16132      ✓ running
+[2026-09-05 09:57:09] [INFO]   日志: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\login_20260905_095707.log
+[2026-09-05 09:57:09] [INFO] OpenMAIC智能课堂服务     5006     12300      ✗ failed
+[2026-09-05 09:57:09] [INFO]   错误: 进程立即退出，请检查日志文件
+[2026-09-05 09:57:09] [INFO] API统一管理服务          5010     1084       ✓ running
+[2026-09-05 09:57:09] [INFO]   日志: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\api_management_20260905_095707.log
+[2026-09-05 09:57:09] [INFO] 手写数字识别服务(GPU)      5005     7772       ✗ failed
+[2026-09-05 09:57:09] [INFO]   错误: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+[2026-09-05 09:57:09] [INFO] 练习反馈服务             5011     5748       ✓ running
+[2026-09-05 09:57:09] [INFO]   日志: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\services\practice_service_20260905_095707.log
+[2026-09-05 09:57:09] [INFO] 启动报告已保存: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\latest_startup_report.txt
+[2026-09-05 09:57:09] [WARNING] 部分服务启动失败，请检查日志
+[2026-09-05 09:57:09] [INFO] 
+正在监控服务状态 (按 Ctrl+C 停止)...
+
+[2026-09-05 09:57:24] [WARNING] [登录服务] 服务异常退出 (退出码: 1)
+[2026-09-05 09:57:24] [WARNING] [练习反馈服务] 服务异常退出 (退出码: 1)
+[2026-09-05 09:59:33] [INFO] 
+收到信号 SIGINT，开始优雅关闭服务...
+[2026-09-05 09:59:33] [INFO] 
+============================================================
+[2026-09-05 09:59:33] [INFO] 正在停止所有服务...
+[2026-09-05 09:59:33] [INFO] ------------------------------------------------------------
+[2026-09-05 09:59:33] [INFO] [API统一管理服务] 停止中 (PID: 1084)...
+[2026-09-05 09:59:34] [INFO] [API统一管理服务] 已停止
+[2026-09-05 09:59:34] [INFO] ============================================================

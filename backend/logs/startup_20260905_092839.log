@@ -1,0 +1,79 @@
+[2026-09-05 09:28:39] [INFO] ============================================================
+[2026-09-05 09:28:39] [INFO] Teacher Assistant AI 服务启动管理器
+[2026-09-05 09:28:39] [INFO] ============================================================
+[2026-09-05 09:28:39] [INFO] 启动模式: 并行
+[2026-09-05 09:28:39] [INFO] 日志级别: INFO
+[2026-09-05 09:28:39] [INFO] ------------------------------------------------------------
+[2026-09-05 09:28:39] [INFO] [登录服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\Login\login.py
+[2026-09-05 09:28:39] [INFO] [API统一管理服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\API_management\app.py --host 0.0.0.0 --port 5010
+[2026-09-05 09:28:39] [INFO] [OpenMAIC智能课堂服务] 启动命令: 命令: pnpm dev --port 5006, 工作目录: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\OpenMAIC
+[2026-09-05 09:28:39] [INFO] [练习反馈服务] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py
+[2026-09-05 09:28:39] [INFO] [手写数字识别服务(GPU)] 启动命令: 命令: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Scripts\python.exe C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py
+[2026-09-05 09:28:41] [ERROR] [登录服务] 启动失败: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\Login\login.py", line 1, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [ERROR] [API统一管理服务] 启动失败: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\API_management\app.py", line 13, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [ERROR] [手写数字识别服务(GPU)] 启动失败: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+[2026-09-05 09:28:41] [ERROR] [练习反馈服务] 启动失败: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py", line 1, in <module>
+    from flask import Flask, request, jsonify, Response
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [ERROR] [OpenMAIC智能课堂服务] 启动失败: 进程立即退出，请检查日志文件
+[2026-09-05 09:28:41] [INFO] ------------------------------------------------------------
+[2026-09-05 09:28:41] [INFO] 启动完成 - 总计: 5 个服务
+[2026-09-05 09:28:41] [INFO]   成功: 0 个
+[2026-09-05 09:28:41] [INFO]   失败: 5 个
+[2026-09-05 09:28:41] [INFO]   总耗时: 2.03 秒
+[2026-09-05 09:28:41] [INFO] ------------------------------------------------------------
+[2026-09-05 09:28:41] [INFO] 服务状态详情:
+[2026-09-05 09:28:41] [INFO] 服务名称                 端口       PID        状态        
+[2026-09-05 09:28:41] [INFO] ------------------------------------------------------------
+[2026-09-05 09:28:41] [INFO] 登录服务               5000     6792       ✗ failed
+[2026-09-05 09:28:41] [INFO]   错误: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\Login\login.py", line 1, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [INFO] OpenMAIC智能课堂服务     5006     4016       ✗ failed
+[2026-09-05 09:28:41] [INFO]   错误: 进程立即退出，请检查日志文件
+[2026-09-05 09:28:41] [INFO] API统一管理服务          5010     13688      ✗ failed
+[2026-09-05 09:28:41] [INFO]   错误: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\API_management\app.py", line 13, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [INFO] 手写数字识别服务(GPU)      5005     16648      ✗ failed
+[2026-09-05 09:28:41] [INFO]   错误: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\DigitRecognition\app.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+[2026-09-05 09:28:41] [INFO] 练习反馈服务             5011     11348      ✗ failed
+[2026-09-05 09:28:41] [INFO]   错误: Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py", line 1, in <module>
+    from flask import Flask, request, jsonify, Response
+ModuleNotFoundError: No module named 'flask'
+
+[2026-09-05 09:28:41] [INFO] 启动报告已保存: C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\logs\latest_startup_report.txt
+[2026-09-05 09:28:41] [WARNING] 部分服务启动失败，请检查日志
+[2026-09-05 09:28:41] [INFO] 
+正在监控服务状态 (按 Ctrl+C 停止)...
+
+[2026-09-05 09:46:49] [INFO] 
+收到信号 SIGINT，开始优雅关闭服务...
+[2026-09-05 09:46:49] [INFO] 
+============================================================
+[2026-09-05 09:46:49] [INFO] 正在停止所有服务...
+[2026-09-05 09:46:49] [INFO] ------------------------------------------------------------
+[2026-09-05 09:46:49] [INFO] ============================================================

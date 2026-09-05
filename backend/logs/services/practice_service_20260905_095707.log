@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py", line 24, in <module>
+    client.admin.command('ping')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\_csot.py", line 126, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\database.py", line 946, in command
+    return self._client._retryable_read(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        inner, read_preference, session, command_name, None, False, is_run_command=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2061, in _retryable_read
+    return self._retry_internal(
+           ~~~~~~~~~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<9 lines>...
+        is_aggregate_write=is_aggregate_write,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\_csot.py", line 126, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2022, in _retry_internal
+    ).run()
+      ~~~^^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2890, in run
+    res = self._read() if self._is_read else self._write()
+          ~~~~~~~~~~^^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 3118, in _read
+    self._server = self._get_server()
+                   ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 3063, in _get_server
+    return self._client._select_server(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._server_selector,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        operation_id=self._operation_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1862, in _select_server
+    server = topology.select_server(
+        server_selector,
+    ...<2 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\topology.py", line 357, in select_server
+    server = self._select_server(
+        selector,
+    ...<4 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\topology.py", line 331, in _select_server
+    servers = self.select_servers(
+        selector,
+    ...<4 lines>...
+        deprioritized_servers,
+    )
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\topology.py", line 249, in select_servers
+    server_descriptions = self._select_servers_loop(
+        selector,
+    ...<4 lines>...
+        deprioritized_servers=deprioritized_servers,
+    )
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\venv\Lib\site-packages\pymongo\synchronous\topology.py", line 297, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+        f"{self._error_message(selector)}, Timeout: {timeout}s, Topology Description: {self.description!r}"
+    )
+pymongo.errors.ServerSelectionTimeoutError: No servers found yet, Timeout: 2.0s, Topology Description: <TopologyDescription id: 6a9b76fcd141b51103f90a0f, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\daxue\Desktop\MyProject\OmniAI-Edu\backend\PracticeService\app.py", line 37, in <module>
+    print(f"\u26a0\ufe0f PracticeService MongoDB ¡¨Ω” ß∞‹: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u26a0' in position 0: illegal multibyte sequence

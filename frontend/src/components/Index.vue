@@ -2,7 +2,7 @@
   <div class="zyyo-filter"></div>
   <div class="zyyo-main">
     <div class="zyyo-left">
-      <div class="logo" style="background-image: url('../../static/img/touxiang.png');">
+      <div class="logo" style="background-image: url('../../static/img/touxiang.jpg');">
         <img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="../../static/img/logokuang.png">
       </div>
       <div class="left-div left-des">
