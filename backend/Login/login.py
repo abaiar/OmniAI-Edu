@@ -53,10 +53,14 @@ def register():
             return jsonify({"success": False, "message": "该用户名已被注册"}), 409
 
         hashed_password = generate_password_hash(password)
+        class_name = request.form.get('class_name', '')
+        student_id = request.form.get('student_id', '')
         new_user = {
             "username": username,
             "password": hashed_password,
             "role": "teacher",
+            "class_name": class_name,
+            "student_id": student_id,
             "created_at": datetime.datetime.utcnow()
         }
 
@@ -73,7 +77,9 @@ def register():
         memory_users[username] = {
             "username": username,
             "password": generate_password_hash(password),
-            "role": "teacher"
+            "role": "teacher",
+            "class_name": class_name,
+            "student_id": student_id
         }
         return jsonify({"success": True, "message": "注册成功，请登录（内存模式）"}), 201
 
